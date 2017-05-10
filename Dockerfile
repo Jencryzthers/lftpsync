@@ -1,17 +1,13 @@
-FROM rastasheep/ubuntu-sshd:14.04
+FROM alpine:latest
 MAINTAINER Jean-Christophe Proulx <j.christophe@devjc.net>
-ENV DEBIAN_FRONTEND noninteractive
 
 # Set correct environment variables
 ENV HOME /root
 
+RUN apk --no-cache add lftp ca-certificates openssh
+
 # Use baseimage-docker's init system
 CMD ["/sbin/my_init"]
-
-RUN apt-get update -q
-
-# Install LFTP / openssh
-RUN apt-get install -qy openssh lftp
 
 VOLUME /scripts
 
