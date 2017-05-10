@@ -13,5 +13,5 @@ CMD ["/sbin/my_init"]
 VOLUME /scripts
 
 
-RUN /bin/bash -c "if [ -f /scripts/autolftp-sftp.sh ] then echo "$file found." else echo "$file not found." fi"
+RUN /bin/bash -c "if [ -f /scripts/autolftp-sftp.sh ] then sleep 15 && while true; do /scripts/autolftp-sftp.sh ; sleep 300; done fi"
 
