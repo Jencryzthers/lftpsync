@@ -4,7 +4,8 @@ MAINTAINER Jean-Christophe Proulx <j.christophe@devjc.net>
 # Set correct environment variables
 ENV HOME /root
 
-CMD ["/bin/bash"]
+# Use baseimage-docker's init system
+CMD ["/sbin/my_init"]
 
 RUN apk add --update bash && rm -rf /var/cache/apk/*
 RUN apk --no-cache add lftp ca-certificates openssh
